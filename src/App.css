@@ -1,6 +1,11 @@
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
 .App {
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -24,6 +29,7 @@
   background-color: white;
   border-radius: 63px;
   margin: 10px;
+  box-shadow: inset 0px 0px 30px -3px rgba(0,0,0,0.75);
 }
 
 
