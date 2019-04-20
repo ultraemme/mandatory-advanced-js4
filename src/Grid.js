@@ -27,9 +27,7 @@ const Grid = (props) => {
   function makeMove(e) {
     console.log(e.nativeEvent);
     let position = e.target.dataset.position.split("-");
-    let newGrid = grid.map(arr => {
-      return [...arr];
-    })
+    let newGrid = JSON.parse(JSON.stringify(grid)); //make and entierly new copy of of an array of arrays to an unknown level of depths
     for (let i = grid[position[0]].length; i >= 0; i--) {
       if (grid[position[0]][i] === 0) {
         newGrid[position[0]][i] = switchTurn();
