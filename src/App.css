@@ -2,6 +2,10 @@
   font-family: 'Raleway', sans-serif;
 }
 
+body {
+  background-color: #efefef;
+}
+
 .App {
   text-align: center;
   display: flex;
@@ -12,10 +16,12 @@
 }
 
 .grid {
+  margin: 30px;
   background-color: mediumblue;
   display: flex;
   flex-direction: row;
   border-radius: 10px;
+  box-sizing: border-box;
 }
 
 .col {
@@ -32,3 +38,14 @@
   box-shadow: inset 0px 0px 30px -3px rgba(0,0,0,0.75);
 }
 
+.msg__status {
+  margin: 0;
+  height: 30px;
+  width: auto;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.btn__reset {
+  margin-bottom: 15px;
+}
