@@ -3,13 +3,14 @@ import './App.css';
 import Grid from './components/Grid';
 
 const cols = 7, rows = 6;
-let turn = 'yellow';
+let turn = 1;
 let count = 0;
 
 const switchPlayer = () => {
-  turn === 'yellow' ?  turn = 'red' : turn = 'yellow';
+  turn === 1 ?  turn = 2 : turn = 1;
   return turn;
 }
+
 const createGrid = (cols, rows) => {
   let arr = new Array(cols);
   for (let i = 0; i < arr.length; i++) {
@@ -32,42 +33,33 @@ const App = () => {
   }, [grid])
 
   const checkWinCondition = () => {
-    console.log(grid);
-
-    //vertical
-    for(let i = 0; i < grid.length; i++) {
+    for(let i = 0; i < grid.length; i++) {//vertical
       for (let j = 0; j < grid[i].length-3; j++) {
         if (grid[i][j] === grid[i][j+1] && grid[i][j] === grid[i][j+2] && grid[i][j] === grid[i][j+3] && grid[i][j] !== "") {
-          console.log('vertical win');
           setStatus(`Player ${grid[i][j]} wins!`);
         }
       }
     }
 
-    //horizontal
-    for(let i = 0; i < grid.length-3; i++) {
+    for(let i = 0; i < grid.length-3; i++) { //horizontal
       for (let j = 0; j < grid[i].length; j++) {
         if (grid[i][j] === grid[i+1][j] && grid[i][j] === grid[i+2][j] && grid[i][j] === grid[i+3][j] && grid[i][j] !== "") {
-          console.log('horizontal win');
           setStatus(`Player ${grid[i][j]} wins!`);
         }
       }
     }
 
-    //diagonals
-    for(let i = 0; i < grid.length-3; i++) {
+    for(let i = 0; i < grid.length-3; i++) { //diagonal from top-left to bottom-right
       for(let j = 0; j < grid[i].length-3; j++) {
         if (grid[i][j] === grid[i+1][j+1] && grid[i][j] === grid[i+2][j+2] && grid[i][j] === grid[i+3][j+3] && grid[i][j] !== "") {
-          console.log("diagonal from top-left to bottom-right hit")
           setStatus(`Player ${grid[i][j]} wins!`);
         }
       }
     }
 
-    for(let i = 0; i < grid.length-3; i++) {
+    for(let i = 0; i < grid.length-3; i++) { // diagonal from bottom-left to top-right
       for(let j = 0; j < grid[i].length; j++) {
         if (grid[i][j] === grid[i+1][j-1] && grid[i][j] === grid[i+2][j-2] && grid[i][j] === grid[i+3][j-3] && grid[i][j] !== "") {
-          console.log("diagonal from bottom-left to top-right hit")
           setStatus(`Player ${grid[i][j]} wins!`);
         }
       }
@@ -76,7 +68,7 @@ const App = () => {
 
   const checkDrawCondition = () => {
     if(count >= cols*rows && !status) {
-      setStatus("Game draw!");
+      setStatus("It's a draw!");
     }
   }
 
