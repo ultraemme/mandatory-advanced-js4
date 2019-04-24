@@ -18,9 +18,9 @@ const hoverEffect = (e) => {
 
 const returnColor = (cell) => {
   if(cell === 1) {
-    return 'yellow';
+    return '#62ACB5';
   } else if (cell === 2){
-    return 'red';
+    return '#c9324c';
   }
 }
 

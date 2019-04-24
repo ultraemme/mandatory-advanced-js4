@@ -9,17 +9,19 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: rgb(255, 226, 171);
 }
+
 
 .grid {
   margin: 30px;
-  background-color: blue;
+  background-color: rgb(55, 55, 55);
   display: flex;
   flex-direction: row;
   border-radius: 10px;
   box-sizing: border-box;
   pointer-events: none;
-  box-shadow: 0px 0px 47px -10px rgba(0,0,0,1);
+  box-shadow: 5px 5px 24px 6px rgba(0,0,0,0.5);
 }
 
 .col {
@@ -30,10 +32,10 @@
   pointer-events: all;
   width: 100px;
   height: 100px;
-  background-color: white;
+  background-color: #dedede;
   border-radius: 63px;
   margin: 10px;
-  box-shadow: inset 0px 0px 28px -2px rgba(0,0,0,1);
+  transition: ease-in-out 0.1s;
 }
 
 .msg__status {
@@ -42,13 +44,40 @@
   width: auto;
   font-weight: bold;
   font-size: 36px;
+  color: rgb(55, 55, 55);
 }
 
 .btn__reset {
+  height: 50px;
+
+  background-color: bisque;
+  border: 2px solid rgb(55, 55, 55);
+  outline: none;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 3px 3px 16px 1px rgba(0,0,0,0.5);
+  transition: ease-in-out 0.1s;
   margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.btn__reset:hover {
+  box-shadow: 3px 3px 12px 1px rgba(0,0,0,0.5);
+  font-size: 26px;
+}
+
+.btn__reset:active {
+  background-color: #d5ba9e;
 }
 
 .hover {
-  background-color: rgba(0, 0, 93, 0.8);
+  background-color: rgb(94, 94, 94);
   border-radius: 10px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
 }

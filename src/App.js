@@ -7,8 +7,7 @@ let turn = 1;
 let count = 0;
 
 const switchPlayer = () => {
-  turn === 1 ?  turn = 2 : turn = 1;
-  return turn;
+  return (turn === 1) ?  turn = 2 : turn = 1;
 }
 
 const createGrid = (cols, rows) => {
@@ -16,7 +15,7 @@ const createGrid = (cols, rows) => {
   for (let i = 0; i < arr.length; i++) {
     arr[i] = new Array(rows);
     for (let j = 0; j < arr[i].length; j++) {
-      arr[i][j] = "";
+      arr[i][j] = 0;
     }
   }
   return arr;
@@ -33,9 +32,9 @@ const App = () => {
   }, [grid])
 
   const checkWinCondition = () => {
-    for(let i = 0; i < grid.length; i++) {//vertical
+    for(let i = 0; i < grid.length; i++) { //vertical
       for (let j = 0; j < grid[i].length-3; j++) {
-        if (grid[i][j] === grid[i][j+1] && grid[i][j] === grid[i][j+2] && grid[i][j] === grid[i][j+3] && grid[i][j] !== "") {
+        if (grid[i][j] === grid[i][j+1] && grid[i][j] === grid[i][j+2] && grid[i][j] === grid[i][j+3] && grid[i][j]) {
           setStatus(`Player ${grid[i][j]} wins!`);
         }
       }
@@ -43,7 +42,7 @@ const App = () => {
 
     for(let i = 0; i < grid.length-3; i++) { //horizontal
       for (let j = 0; j < grid[i].length; j++) {
-        if (grid[i][j] === grid[i+1][j] && grid[i][j] === grid[i+2][j] && grid[i][j] === grid[i+3][j] && grid[i][j] !== "") {
+        if (grid[i][j] === grid[i+1][j] && grid[i][j] === grid[i+2][j] && grid[i][j] === grid[i+3][j] && grid[i][j]) {
           setStatus(`Player ${grid[i][j]} wins!`);
         }
       }
@@ -51,7 +50,7 @@ const App = () => {
 
     for(let i = 0; i < grid.length-3; i++) { //diagonal from top-left to bottom-right
       for(let j = 0; j < grid[i].length-3; j++) {
-        if (grid[i][j] === grid[i+1][j+1] && grid[i][j] === grid[i+2][j+2] && grid[i][j] === grid[i+3][j+3] && grid[i][j] !== "") {
+        if (grid[i][j] === grid[i+1][j+1] && grid[i][j] === grid[i+2][j+2] && grid[i][j] === grid[i+3][j+3] && grid[i][j]) {
           setStatus(`Player ${grid[i][j]} wins!`);
         }
       }
@@ -59,7 +58,7 @@ const App = () => {
 
     for(let i = 0; i < grid.length-3; i++) { // diagonal from bottom-left to top-right
       for(let j = 0; j < grid[i].length; j++) {
-        if (grid[i][j] === grid[i+1][j-1] && grid[i][j] === grid[i+2][j-2] && grid[i][j] === grid[i+3][j-3] && grid[i][j] !== "") {
+        if (grid[i][j] === grid[i+1][j-1] && grid[i][j] === grid[i+2][j-2] && grid[i][j] === grid[i+3][j-3] && grid[i][j]) {
           setStatus(`Player ${grid[i][j]} wins!`);
         }
       }
@@ -83,7 +82,7 @@ const App = () => {
       let pos = e.target.dataset.pos.split("-");
       let newGrid = JSON.parse(JSON.stringify(grid));
       for (let i = grid[pos[0]].length; i >= 0; i--) {
-        if (grid[pos[0]][i] === "") {
+        if (grid[pos[0]][i] === 0) {
           count++;
           newGrid[pos[0]][i] = switchPlayer();
           setGrid(newGrid);
@@ -95,7 +94,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <button onClick={resetGame} className="btn__reset">RESET</button>
+      <h1 className="title">Connect Four</h1>
+      <button onClick={resetGame} className="btn__reset">RESTART</button>
       <p className="msg__status">{status}</p>
       <Grid grid={grid} makeMove={makeMove}/>
     </div>
