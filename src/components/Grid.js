@@ -2,17 +2,9 @@ import React from 'react';
 
 const hoverEffect = (e) => {
   if (e.nativeEvent.type === "mouseover") {
-    if (e.target.classList.contains("col")) {
-      e.target.classList.add("hover");
-    } else {
-      e.target.parentNode.classList.add("hover");
-    }
+    e.target.classList.contains("col") ? e.target.classList.add("hover") : e.target.parentNode.classList.add("hover");
   } else if (e.nativeEvent.type === "mouseout") {
-    if (e.target.classList.contains("col")) {
-      e.target.classList.remove("hover");
-    } else {
-      e.target.parentNode.classList.remove("hover");
-    }
+    e.target.classList.contains("col") ? e.target.classList.remove("hover") : e.target.parentNode.classList.remove("hover");
   }
 }
 

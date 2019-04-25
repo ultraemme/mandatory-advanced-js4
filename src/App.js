@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Grid from './components/Grid';
 
-const cols = 7, rows = 6;
-let turn = 1;
+const cols = 7, rows = 6; //alt. state?
+let turn = 1; //alt. state?
 let count = 0;
 
 const switchPlayer = () => {

@@ -3,7 +3,6 @@
 }
 
 .App {
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,6 +21,7 @@
   box-sizing: border-box;
   pointer-events: none;
   box-shadow: 5px 5px 24px 6px rgba(0,0,0,0.5);
+  position: relative;
 }
 
 .col {
@@ -39,7 +39,7 @@
 }
 
 .msg__status {
-  margin: 0;
+  margin: 5px 0 0 0;
   height: 30px;
   width: auto;
   font-weight: bold;
@@ -49,7 +49,6 @@
 
 .btn__reset {
   height: 50px;
-
   background-color: bisque;
   border: 2px solid rgb(55, 55, 55);
   outline: none;
@@ -59,7 +58,7 @@
   box-shadow: 3px 3px 16px 1px rgba(0,0,0,0.5);
   transition: ease-in-out 0.1s;
   margin-bottom: 15px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .btn__reset:hover {
@@ -77,6 +76,7 @@
 }
 
 .title {
+  color: rgb(55, 55, 55);
   font-size: 48px;
   font-weight: bold;
   margin: 0;
