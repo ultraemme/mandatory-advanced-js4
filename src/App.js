@@ -3,11 +3,11 @@ import './App.css';
 import Grid from './components/Grid';
 
 const cols = 7, rows = 6; //alt. state?
-let turn = 1; //alt. state?
-let count = 0;
+let player = 1; //alt. state?
+let turn = 0;
 
 const switchPlayer = () => {
-  return (turn === 1) ?  turn = 2 : turn = 1;
+  return (player === 1) ?  player = 2 : player = 1;
 }
 
 const createGrid = (cols, rows) => {
@@ -66,13 +66,13 @@ const App = () => {
   }
 
   const checkDrawCondition = () => {
-    if(count >= cols*rows && !status) {
+    if(turn >= cols*rows && !status) {
       setStatus("It's a draw!");
     }
   }
 
   const resetGame = () => {
-    count = 0;
+    turn = 0;
     setGrid(createGrid(cols, rows));
     setStatus("");
   }
@@ -83,7 +83,7 @@ const App = () => {
       let newGrid = JSON.parse(JSON.stringify(grid));
       for (let i = grid[pos[0]].length; i >= 0; i--) {
         if (grid[pos[0]][i] === 0) {
-          count++;
+          turn++;
           newGrid[pos[0]][i] = switchPlayer();
           setGrid(newGrid);
           return;
